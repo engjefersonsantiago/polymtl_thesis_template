@@ -172,7 +172,7 @@ FUNCTION {default.name.latex.cmd}{ "" }
 
 
 % The default URL prefix.
-FUNCTION {default.name.url.prefix}{ "[Online]. Available:" }
+FUNCTION {default.name.url.prefix}{ "[En ligne]. Disponible:" }
 
 
 % Other controls that cannot be accessed via IEEEtranBSTCTL entry type.
@@ -232,7 +232,7 @@ FUNCTION {bbl.editor}{ "édit." }
 FUNCTION {bbl.edition}{ "éd." }
 FUNCTION {bbl.volume}{ "vol." }
 FUNCTION {bbl.of}{ "de" }
-FUNCTION {bbl.number}{ "no." }
+FUNCTION {bbl.number}{ "n$^{\text{o}}$." }
 FUNCTION {bbl.in}{ "dans" }
 FUNCTION {bbl.pages}{ "p." }
 FUNCTION {bbl.page}{ "p." }
@@ -240,17 +240,17 @@ FUNCTION {bbl.chapter}{ "ch." }
 FUNCTION {bbl.paper}{ "papier" }
 FUNCTION {bbl.part}{ "pt." }
 FUNCTION {bbl.patent}{ "Brevet" }
-FUNCTION {bbl.patentUS}{ "U.S." }
+FUNCTION {bbl.patentUS}{ "américain " }
 FUNCTION {bbl.revision}{ "Rev." }
 FUNCTION {bbl.series}{ "ser." }
 FUNCTION {bbl.standard}{ "Norme" }
 FUNCTION {bbl.techrep}{ "Rapport technique" }
 FUNCTION {bbl.mthesis}{ "Mémoire de maîtrise" }
 FUNCTION {bbl.phdthesis}{ "Thèse de doctorat" }
-FUNCTION {bbl.st}{ "er" }
-FUNCTION {bbl.nd}{ "e" }
-FUNCTION {bbl.rd}{ "e" }
-FUNCTION {bbl.th}{ "e" }
+FUNCTION {bbl.st}{ "$^{\text{er}}$" }
+FUNCTION {bbl.nd}{ "$^{\text{e}}$" }
+FUNCTION {bbl.rd}{ "$^{\text{e}}$" }
+FUNCTION {bbl.th}{ "$^{\text{e}}$" }
 
 % This is the LaTeX spacer that is used when a larger than normal space
 % is called for (such as just before the address:publisher).
@@ -1249,7 +1249,7 @@ FUNCTION {format.names}
               t "others" =
                 { " " * bbl.etal emphasize * }
                 { numnames #2 >
-                    { "," * }
+                    { " " * }
                     { skip$ }
                   if$
                   bbl.and
@@ -1843,9 +1843,7 @@ FUNCTION {format.patent.nationality.type.number}
 }
 
 
-
 %% standard
-
 FUNCTION {format.organization.institution.standard.type.number}
 { this.to.prev.status
   this.status.std
@@ -1872,6 +1870,8 @@ FUNCTION {format.organization.institution.standard.type.number}
   if$ 
   cap.status.std
 }
+
+
 
 FUNCTION {format.revision}
 { revision empty$
