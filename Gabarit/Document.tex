@@ -8,6 +8,16 @@
 %%
 %%  Accepte les caractères accentués dans le document (UTF-8).
 
+
+\makeatletter
+\def\bstctlcite{\@ifnextchar[{\@bstctlcite}{\@bstctlcite[@auxout]}}
+\def\@bstctlcite[#1]#2{\@bsphack
+ \@for\@citeb:=#2\do{%
+   \edef\@citeb{\expandafter\@firstofone\@citeb}%
+   \if@filesw\immediate\write\csname #1\endcsname{\string\citation{\@citeb}}\fi}%
+ \@esphack}
+\makeatother
+
 % Specify here the desired language
 \newcommand\Langue{french}            % english or french
 
@@ -93,6 +103,8 @@
 %% Il y a un document par chapitre du mémoire.
 %%
 \begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
+
 %%
 %% Page de titre du mémoire.
 \frontmatter
