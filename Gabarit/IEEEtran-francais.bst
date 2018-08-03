@@ -1783,7 +1783,7 @@ FUNCTION {format.patent.date}
           swap$
           duplicate$ empty$
              { pop$ }
-             { ", " * swap$ * }
+             { " " * swap$ * }
            if$
         }
       if$
@@ -1807,7 +1807,7 @@ FUNCTION {format.patent.date}
       swap$
       duplicate$ empty$
         { pop$ }
-        { ", " * swap$ * }
+        { " " * swap$ * }
       if$
     }
   if$
